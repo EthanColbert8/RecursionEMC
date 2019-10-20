@@ -24,22 +24,35 @@ public class BCRecursive {
 		System.out.println("This is the recursive version of BC.");//making sure I'm testing the right program.
 		Scanner input = new Scanner(System.in);
 		
+		Scanner input2 = new Scanner(System.in);
+		boolean goAgain = true;
+		String userChoice;
 		do {
-			System.out.print("Enter the number of choices: ");
-			n = input.nextLong();
-			System.out.print("Enter how many to choose: ");
-			k = input.nextLong();
-		} while (!(k > 0 && n >= k));
-		
-		long numerator = factorial(n);
-		long denominator1 = factorial(k);
-		long denominator2 = factorial(n - k);
-		
-		result = (numerator / (denominator1 * denominator2));
-		
-		System.out.printf("There are %d ways to choose %d items from %d choices.", result, k, n);
+			
+			do {
+				System.out.print("Enter the number of choices: ");
+				n = input.nextLong();
+				System.out.print("Enter how many to choose: ");
+				k = input.nextLong();
+			} while (!(k > 0 && n >= k));
+			
+			long numerator = factorial(n);
+			long denominator1 = factorial(k);
+			long denominator2 = factorial(n - k);
+			
+			result = (numerator / (denominator1 * denominator2));
+			
+			System.out.printf("There are %d ways to choose %d items from %d choices.\n", result, k, n);
+			
+			System.out.print("Do you want to compute another value (Yes or No)? ");
+			userChoice = input2.nextLine();
+			if (userChoice.toLowerCase().charAt(0) != 'y') {
+				goAgain = false;
+			}
+		} while (goAgain);
 		
 		input.close();
+		input2.close();
 	}// end main
 	
 	/**

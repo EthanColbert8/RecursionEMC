@@ -23,34 +23,47 @@ public class BCDynamic {
 		System.out.println("This is the dynamic version of BC.");//making sure I'm testing the right program.
 		Scanner input = new Scanner(System.in);
 		
+		Scanner input2 = new Scanner(System.in);
+		boolean goAgain = true;
+		String userChoice = "Y_string";
 		do {
-			System.out.print("Enter the number of choices: ");
-			n = input.nextLong();
-			System.out.print("Enter how many to choose: ");
-			k = input.nextLong();
-		} while (!(k > 0 && n >= k));
-		
-		long numerator = 1, denominator1 = 1, denominator2 = 1;
-		
-		for (int i = 1; i <= n; i++) {
 			
-			numerator *= i;
+			do {
+				System.out.print("Enter the number of choices: ");
+				n = input.nextLong();
+				System.out.print("Enter how many to choose: ");
+				k = input.nextLong();
+			} while (!(k > 0 && n >= k));
 			
-			if (i == k) {
-				denominator1 = numerator;
+			long numerator = 1, denominator1 = 1, denominator2 = 1;
+			
+			for (int i = 1; i <= n; i++) {
+				
+				numerator *= i;
+				
+				if (i == k) {
+					denominator1 = numerator;
+				}
+				
+				if (i == (n - k)) {
+					denominator2 = numerator;
+				}
+				
 			}
 			
-			if (i == (n - k)) {
-				denominator2 = numerator;
-			}
+			result = (numerator / (denominator1 * denominator2));
 			
-		}
-		
-		result = (numerator / (denominator1 * denominator2));
-		
-		System.out.printf("There are %d ways to choose %d items from %d choices.", result, k, n);
+			System.out.printf("There are %d ways to choose %d items from %d choices.\n", result, k, n);
+			
+			System.out.print("Do you want to compute another value (Yes or No)? ");
+			userChoice = input2.nextLine();
+			if (userChoice.toLowerCase().charAt(0) != 'y') {
+				goAgain = false;
+			}
+		} while (goAgain);
 		
 		input.close();
+		input2.close();
 	}// end main
 
 }// end "BCDynamic" class
