@@ -1,0 +1,6 @@
+20, 5, 15504, 1 second.
+5, 3, 10, 1 second.
+15, 15, 1, 1 second.
+12, 1, 12, 1 second.
+14, 0, 1, 1 second.
+10, 4, 210, 1 second.

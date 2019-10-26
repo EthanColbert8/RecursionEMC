@@ -28,7 +28,7 @@ public class FactoredBC {
 			n = input.nextLong();
 			System.out.print("Enter how many to choose: ");
 			k = input.nextLong();
-		} while (!(k > 0 && n >= k));
+		} while (!(k >= 0 && n >= k));
 		
 		long numerator = 1, denominator = 1;
 		
